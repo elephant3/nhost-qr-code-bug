@@ -32,6 +32,8 @@ export default async (req: Request, res: Response) => {
     })
 
     const qrStream = new PassThrough();
+    qrStream.pipe(res);
+
     await QRCode.toFileStream(qrStream, content,
       {
         type: 'png',
@@ -40,7 +42,6 @@ export default async (req: Request, res: Response) => {
       }
     );
 
-    qrStream.pipe(res);
     console.log("before")
     await sleep(2000)
     console.log("after")
