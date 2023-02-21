@@ -38,3 +38,7 @@ EF BF BD 50 4E 47 ...
 ```
 
 EF BF BD + PNG
+
+It is most probably related to the fact that nhost is deployed to AWS and Lambda has a wierd way to allow returning binary content:
+
+https://adil.medium.com/how-to-send-an-image-as-a-response-via-aws-lambda-and-api-gateway-3820f3d4b6c8
