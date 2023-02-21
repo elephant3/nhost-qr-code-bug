@@ -38,7 +38,7 @@ export default async (req: Request, res: Response) => {
       }
     );
 
-    qrStream.pipe(res);
+    await qrStream.pipe(res);
   } catch(err){
     console.error('Failed to return content', err);
   }
