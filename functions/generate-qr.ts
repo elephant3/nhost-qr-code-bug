@@ -32,10 +32,11 @@ export default async (req: Request, res: Response) => {
       description
     })
 
-    const qrStream = new PassThrough();
-    qrStream.setDefaultEncoding('binary')
+    // const qrStream = new PassThrough();
+    // qrStream.setDefaultEncoding('binary')
+    // qrStream.pipe(res);
 
-    await QRCode.toFileStream(qrStream, content,
+    await QRCode.toFileStream(res, content,
       {
         type: 'png',
         width: width,
@@ -43,7 +44,6 @@ export default async (req: Request, res: Response) => {
       }
     );
 
-    qrStream.pipe(res);
 
     console.log("before")
     await sleep(2000)
