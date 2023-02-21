@@ -1,7 +1,5 @@
 import {Request, Response} from 'express';
-import {PassThrough} from 'stream';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
 const QRCode = require("qrcode")
 
 const sleep = time => new Promise(res => setTimeout(res, time, "done sleeping"));
@@ -20,7 +18,6 @@ const sleep = time => new Promise(res => setTimeout(res, time, "done sleeping"))
  */
 export default async (req: Request, res: Response) => {
   try{
-    console.log("res", res)
     const locationId = req.query.locationId;
     const address = req.query.address;
     const description = req.query.description;
@@ -32,10 +29,6 @@ export default async (req: Request, res: Response) => {
       description
     })
 
-    // const qrStream = new PassThrough();
-    // qrStream.setDefaultEncoding('binary')
-    // qrStream.pipe(res);
-
     await QRCode.toFileStream(res, content,
       {
         type: 'png',
@@ -43,13 +36,8 @@ export default async (req: Request, res: Response) => {
         errorCorrectionLevel: 'H'
       }
     );
-
-
-    console.log("before")
-    await sleep(2000)
-    console.log("after")
   } catch(err){
-    console.error('Failed to return content', err);
+    console.error('Failed to generate QR code', err);
   }
 }
 
