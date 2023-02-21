@@ -21,7 +21,6 @@ const sleep = time => new Promise(res => setTimeout(res, time, "done sleeping"))
 export default async (req: Request, res: Response) => {
   try{
     console.log("res", res)
-    res.setHeader("content-type", "image/png")
     const locationId = req.query.locationId;
     const address = req.query.address;
     const description = req.query.description;
