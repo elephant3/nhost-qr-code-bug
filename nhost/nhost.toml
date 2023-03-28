@@ -1,6 +1,6 @@
 [global]
 
-[global.environment]
+[[global.environment]]
 name = 'foo'
 value = 'bar'
 
