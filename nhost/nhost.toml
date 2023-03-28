@@ -16,6 +16,12 @@ key = '{{ secrets.HASURA_GRAPHQL_JWT_SECRET }}'
 [hasura.settings]
 enableRemoteSchemaPermissions = false
 
+[hasura.logs]
+level = "debug"
+
+[hasura.events]
+httpPoolSize = 99
+
 [functions]
 [functions.node]
 version = 16
