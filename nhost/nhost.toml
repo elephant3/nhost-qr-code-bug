@@ -8,6 +8,10 @@ value = 'bar'
 name = 'bla'
 value = 'blabla'
 
+[[global.environment]]
+name = 'boo'
+value = 'baa'
+
 [hasura]
 version = 'v2.15.2'
 adminSecret = '{{ secrets.HASURA_GRAPHQL_ADMIN_SECRET }}'
