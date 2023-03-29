@@ -4,6 +4,10 @@
 name = 'foo'
 value = 'bar'
 
+[[global.environment]]
+name = 'bla'
+value = 'blabla'
+
 [hasura]
 version = 'v2.15.2'
 adminSecret = '{{ secrets.HASURA_GRAPHQL_ADMIN_SECRET }}'
